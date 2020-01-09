@@ -1,1 +1,3 @@
 .history/
+.vscode/
+/eg12/user-management/node_modules
