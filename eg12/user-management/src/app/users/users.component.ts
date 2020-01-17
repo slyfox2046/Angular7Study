@@ -6,8 +6,8 @@
  */
 
 import { Component, OnInit } from "@angular/core";
-import { USERS } from "../mock-users";
 import { User } from "../user";
+import { UserService } from "../user.service";
 
 @Component({
   selector: "app-users",
@@ -20,13 +20,19 @@ export class UsersComponent implements OnInit {
     name: "老卫",
     isSecret: false
   };
-  users = USERS;
-  constructor() { }
+  users: User[];
+  constructor(private userService: UserService) {}
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.getUsers();
+  }
 
   selectedUser: User;
-  onSelect(user: User): void { 
+  onSelect(user: User): void {
     this.selectedUser = user;
+  }
+  getUsers(): void {
+    // this.users = this.userService.getUsers();
+    this.userService.getUsers().subscribe(users => this.users=users);
   }
 }
