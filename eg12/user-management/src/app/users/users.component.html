@@ -1,13 +1,16 @@
-<h2>{{user.name}}</h2>
-<div><span>id:</span>{{user.id}}</div>
-
-<label>name:
-  <input [(ngModel)]="user.name" placeholder="name">
-</label>
+<!--
+ * @Author: Admin
+ * @Date: 2020-01-10 16:48:23
+ * @FilePath: \Angular7Study\eg12\user-management\src\app\users\users.component.html
+ * @Description: file content
+ -->
 
 <h2>我的用户</h2>
 <ul class="users">
-  <li *ngFor="let user of users">
-    <span class=badge>{{user.id}}    </span>{{user.name}}
+  <li *ngFor="let user of users"
+  [class.selected]="user === selectedUser"
+  (click)="onSelect(user)">
+    <span class="badge">{{user.id}} </span>{{user.name}}
   </li>
 </ul>
+<app-user-detail [user]='selectedUser'></app-user-detail>
