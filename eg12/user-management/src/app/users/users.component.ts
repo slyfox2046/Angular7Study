@@ -15,11 +15,6 @@ import { UserService } from "../user.service";
   styleUrls: ["./users.component.scss"]
 })
 export class UsersComponent implements OnInit {
-  user: User = {
-    id: 1,
-    name: "老卫",
-    isSecret: false
-  };
   users: User[];
   constructor(private userService: UserService) {}
 
@@ -27,12 +22,12 @@ export class UsersComponent implements OnInit {
     this.getUsers();
   }
 
-  selectedUser: User;
-  onSelect(user: User): void {
-    this.selectedUser = user;
-  }
+  // selectedUser: User;
+  // onSelect(user: User): void {
+  //   this.selectedUser = user;
+  // }
   getUsers(): void {
     // this.users = this.userService.getUsers();
-    this.userService.getUsers().subscribe(users => this.users=users);
+    this.userService.getUsers().subscribe(users => (this.users = users));
   }
 }
