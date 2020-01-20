@@ -4,7 +4,7 @@
  * @FilePath: \Angular7Study\eg12\user-management\src\app\user.service.ts
  * @Description: file content
  */
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
@@ -19,6 +19,9 @@ export class UserService {
     private messageService: MessageService
   ) {}
 
+  private httpOptions: Object = {
+    headers: new HttpHeaders({ "Content-Type": "application/json" })
+  };
   private handleError<T>(operation = "operation", result?: T) {
     return (error: any): Observable<T> => {
       console.error(error);
@@ -64,6 +67,29 @@ export class UserService {
     return this.http.get<User>(url).pipe(
       tap(_ => this.log(`fetched user id=${id}`)),
       catchError(this.handleError<User>(`getUser id=${id}`))
+    );
+  }
+  updateUser(user: User): Observable<any> {
+    return this.http.put(this.usersURL, user, this.httpOptions).pipe(
+      tap(_ => this.log(`updated user id=${user.id}`)),
+      catchError(this.handleError<any>("updateUser"))
+    );
+  }
+  addUser(user: User): Observable<User> {
+    console.log(user);
+    return this.http.post<User>(this.usersURL, user, this.httpOptions).pipe(
+      tap((user: User) => this.log(`add user id =${user.id}`)),
+      catchError(this.handleError<User>("addUser"))
+    );
+  }
+
+  deleteUser(user: User | number): Observable<User> {
+    // return of([{name:'1','id':1,isSecret:false}]);
+    const id = (typeof user === "number" ?user:user.id);
+    const url = `${this.usersURL/${id}}`;
+    return this.http.delete<User>(url,this.httpOptions ).pipe(
+      tap(_=> this.loog(`deleted user id = ${ id }`)),
+      catchError(this.handleError<User>('deleteUser'))
     );
   }
 }

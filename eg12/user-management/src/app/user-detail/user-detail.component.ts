@@ -9,6 +9,7 @@ import { Component, Input, OnInit } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { User } from "../user";
 import { UserService } from "../user.service";
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 @Component({
   selector: "app-user-detail",
   templateUrl: "./user-detail.component.html",
@@ -33,4 +34,8 @@ export class UserDetailComponent implements OnInit {
   goBack():void { 
     this.location.back();
   }
+  save(): void { 
+  this.userService.updateUser(this.user).subscribe(() => this.goBack());
+  }
+
 }
