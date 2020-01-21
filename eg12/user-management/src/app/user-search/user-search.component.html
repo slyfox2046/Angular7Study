@@ -1,0 +1,17 @@
+<!--
+ * @Author: Admin
+ * @Date: 2020-01-21 10:37:26
+ * @FilePath: \Angular7Study\eg12\user-management\src\app\user-search\user-search.component.html
+ * @Description: file content
+ -->
+<div id="search-component">
+  <h4>User Search</h4>
+  <input #searchBox id="search-Box" (keyup)="search(searchBox.value)" />
+
+  <ul class="search-result">
+    <li *ngFor="let user  of users$ | async">
+    <a routerLink="/detail/{{user.id}}">
+    {{user.name}}</a>
+  </li>
+  </ul>
+</div>

@@ -10,6 +10,7 @@ import { UserDetailComponent } from "./user-detail/user-detail.component";
 import { UsersComponent } from "./users/users.component";
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import { UserSearchComponent } from './user-search/user-search.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     UsersComponent,
     UserDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserSearchComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule,
   HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService,{dataEncapsulation:false})],

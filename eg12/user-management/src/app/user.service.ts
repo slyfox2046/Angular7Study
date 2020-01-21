@@ -86,10 +86,20 @@ export class UserService {
   deleteUser(user: User | number): Observable<User> {
     // return of([{name:'1','id':1,isSecret:false}]);
     const id = (typeof user === "number" ?user:user.id);
-    const url = `${this.usersURL/${id}}`;
+    const url = `${this.usersURL}/${id}`;
     return this.http.delete<User>(url,this.httpOptions ).pipe(
-      tap(_=> this.loog(`deleted user id = ${ id }`)),
+      tap(_=> this.log(`deleted user id = ${ id }`)),
       catchError(this.handleError<User>('deleteUser'))
     );
+  }
+
+  searchUsers(term: string): Observable<User[]> { 
+    if (!term.toString()) { 
+      return of([]);
+    }
+    return this.http.get<User[]>(`${this.usersURL}?name=${term}`).pipe(
+      tap(_ => this.log(`found Users matching "${term}"`)),
+      catchError(this.handleError<User[]>('searchUsers', []))
+    )
   }
 }
