@@ -1,3 +1,5 @@
-<p>
-  user-parent works!
-</p>
+<h2>{{master}}有{{users.length}}个学生</h2>
+<app-user-child *ngFor="let user of users">
+  <!-- <!-- [user]="user" -->
+  [masterName]="master"
+</app-user-child>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-user-child',
@@ -12,4 +13,6 @@ export class UserChildComponent implements OnInit {
   ngOnInit() {
   }
 
+  // @Input() user: User;
+  @Input() masterName: string;
 }
