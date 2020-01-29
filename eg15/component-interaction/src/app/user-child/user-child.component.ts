@@ -13,6 +13,6 @@ export class UserChildComponent implements OnInit {
   ngOnInit() {
   }
 
-  // @Input() user: User;
+  @Input() user: User;
   @Input() masterName: string;
 }
