@@ -26,4 +26,7 @@ export class AstronautComponent implements OnInit {
     this.confirmed = true;
     this.missionService.confirmMission(this.astronaut)
   }
+  ngOnDestory() { 
+    this.subscription.unsubscribe();
+  }
 }
