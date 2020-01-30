@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { CountdownTimerComponent } from '../countdown-timer/countdown-timer.component';
 
 @Component({
   selector: 'app-countdown-parent',
@@ -12,4 +13,12 @@ export class CountdownParentComponent implements OnInit {
   ngOnInit() {
   }
 
+  @ViewChild(CountdownTimerComponent)
+  private timerComponent: CountdownTimerComponent;
+  decrease() { 
+    this.timerComponent.decrease();
+  }
+  seconds() { 
+    return this.timerComponent.seconds;
+  }
 }
