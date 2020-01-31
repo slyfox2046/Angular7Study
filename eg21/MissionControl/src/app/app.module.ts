@@ -2,13 +2,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MissonControlComponent } from './misson-control/misson-control.component';
+import { MissionControlComponent } from './mission-control/mission-control.component';
 import { AstronautComponent } from './astronaut/astronaut.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MissonControlComponent,
+    MissionControlComponent,
     AstronautComponent
   ],
   imports: [
