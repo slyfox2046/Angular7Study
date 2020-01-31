@@ -1,2 +1,7 @@
 <h2>导弹控制器</h2>
 <button (click)="announce()">准备开始</button>
+<app-astronaut *ngFor="let astronaut of astronauts" [astronaut]="astronaut"></app-astronaut>
+<h3>日志</h3>
+<ul>
+  <li *ngFor="let event of history ">{{event}}</li>
+</ul>

@@ -11,8 +11,8 @@ export class MissionService {
   private missionConfirmedSource = new Subject<string>();
   missionAnnounced$ = this.missionAnnounceSource.asObservable();
   missionConfirmed$ = this.missionConfirmedSource.asObservable();
-  announceMission(mission: string) { 
-    this.missionAnnounceSource.next(mission);
+  announceMission(mission: string) {
+     this.missionAnnounceSource.next(mission);
   }
   confirmMission(astronaut: string) { 
     this.missionConfirmedSource.next(astronaut);

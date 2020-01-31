@@ -23,7 +23,7 @@ export class MissionControlComponent implements OnInit {
     let mission = this.missions[this.nextMission++];
     this.missionService.announceMission(mission);
     this.history.push(`任务"${mission}"进入准备`);
-    if (this.nextMission >= this.missions.length) { 
+    if (this.nextMission >= this.missions.length) {
       this.nextMission = 0;
     }
   }
