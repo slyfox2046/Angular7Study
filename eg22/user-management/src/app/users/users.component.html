@@ -19,8 +19,10 @@
 <app-user-detail></app-user-detail>
 
 <div style="margin-top:10px">
-  <label >
+  <label class="username">
     User Name:<input #userName />
   </label>
   <button (click)="add(userName.value); userName.value=''">add</button>
 </div>
+
+
