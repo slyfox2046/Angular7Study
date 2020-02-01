@@ -1,0 +1,17 @@
+<!--
+ * @Author: Admin
+ * @Date: 2020-01-17 21:29:10
+ * @FilePath: \Angular7Study\eg12\user-management\src\app\user-detail\user-detail.component.html
+ * @Description: file content
+ -->
+<div *ngIf="user">
+  <h2>{{user.name}}</h2>
+  <div><span>id:</span>{{user.id}}</div>
+
+  <label>name:
+    <input [(ngModel)]="user.name" placeholder="name">
+  </label>
+</div>
+
+<button (click)="goBack()">go back</button>
+<button (click)="save()">save</button>

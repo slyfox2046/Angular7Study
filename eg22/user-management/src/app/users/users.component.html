@@ -1,0 +1,26 @@
+<!--
+ * @Author: Admin
+ * @Date: 2020-01-10 16:48:23
+ * @FilePath: \Angular7Study\eg12\user-management\src\app\users\users.component.html
+ * @Description: file content
+ -->
+
+<h2>我的用户</h2>
+<ul class="users">
+  <li *ngFor="let user of users">
+  <a routerLink="/detail/{{user.id}}">
+    <span class="badge">{{user.id}} </span>{{user.name}}
+  </a>
+  <button class="delete" title="delete user" (click)="delete(user)"> x</button>
+
+  </li>
+  
+</ul>
+<app-user-detail></app-user-detail>
+
+<div style="margin-top:10px">
+  <label >
+    User Name:<input #userName />
+  </label>
+  <button (click)="add(userName.value); userName.value=''">add</button>
+</div>
