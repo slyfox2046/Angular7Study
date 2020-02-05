@@ -6,7 +6,7 @@ import { User } from './user.service';
 @Component({
   selector: 'app-user-list-basic',
   template: `
-    <ul>456
+    <ul>
       <li *ngFor="let user of users"
           [@userState]="user.state"
           (click)="user.toggleState()">
