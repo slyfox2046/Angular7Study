@@ -21,4 +21,9 @@ export class UserFormComponent implements OnInit {
     return JSON.stringify(this.model);
    
   }
+
+  newUser() { 
+    this.model = new User(1,"","");
+  }
+
 }

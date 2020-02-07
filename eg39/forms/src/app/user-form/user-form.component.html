@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>用户表单</h1>
+{{diagnostic}}
+  <form #userForm="ngForm">
+    <div class=“form-group”>
+      <label for="name">姓名 </label>
+      <input type="text " class="form-control" id='name' required [(ngModel)]="model.name" name="name">
+    </div>
+    <div class="form-group">
+      <label class="" for="age">年龄 </label>
+      <input type="text " class="form-control" id='age'  [(ngModel)]="model.age" name="age">
+    </div>
+    <div class="form-group">
+      <label for="job">职业</label>
+      <select name="" id="job" class="form-control" required  [(ngModel)]="model.job" name="job">
+      <option *ngFor ="let jo of jobs" [value]="jo">{{jo}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
