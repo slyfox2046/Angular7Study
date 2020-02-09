@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-form-question.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +12,7 @@ import { DynamicFormQuestionComponent } from './dynamic-form-question/dynamic-fo
     DynamicFormQuestionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

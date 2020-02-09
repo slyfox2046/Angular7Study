@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { QuestionService } from './question.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'dynamicForm';
+  title = '响应式表单';
+  questions: any[];
+  /**
+   *
+   */
+  constructor(service: QuestionService) {
+    this.questions = service.getQuestions();
+    
+  }
 }
