@@ -1,7 +1,7 @@
 <form [formGroup]="nestingForm" (ngSubmit)="onSubmit()">
     <label class="" for="">
       名字：
-      <input type="text" formControlName="firstName">
+      <input type="text" formControlName="firstName" >
     </label>
     <label class="" for="">
       姓氏：
@@ -21,4 +21,9 @@
 
   </div>
   <button type="submit" [disabled]="!nestingForm.valid">Submit</button>
+
+  <p>
+    <button (click)='updateProfile()'>更新</button>
+  </p>
+
 </form>

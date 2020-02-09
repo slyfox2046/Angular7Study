@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: "app-nesting-form",
@@ -7,17 +7,36 @@ import { FormControl, FormGroup } from "@angular/forms";
   styleUrls: ["./nesting-form.component.css"]
 })
 export class NestingFormComponent implements OnInit {
-  constructor() {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {}
 
-  nestingForm = new FormGroup({
+  /*   nestingForm = new FormGroup({
     firstName: new FormControl(""),
     lastName: new FormControl(""),
     address: new FormGroup({
       city: new FormControl(""),
       street: new FormControl("")
     })
+  }); */
+
+  nestingForm = this.fb.group({
+    firstName: ["",Validators.required],
+    lastName: [""],
+    address: this.fb.group({
+      city: [""],
+      street: [""]
+    })
   });
-  onSubmit() {console.warn(this.nestingForm.value) }
+  onSubmit() {
+    console.warn(this.nestingForm.value);
+  }
+  updateProfile() {
+    this.nestingForm.patchValue({
+      firstName: "老卫",
+      address: {
+        street: "坂田华为基地"
+      }
+    });
+  }
 }
