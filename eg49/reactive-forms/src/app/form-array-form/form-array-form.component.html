@@ -1,0 +1,13 @@
+<form [formGroup]="formArrayForm" (ngSubmit)="onSubmit()">
+  <div formArrayName="aliases">
+    <button (click)="addAlias()">新增控件</button>
+    <div *ngFor="let address of aliases.controls;let i =index">
+      <label for="">控件</label>
+
+<input type="text" [formControlName]= "i">
+
+
+    </div>
+  </div>
+<button type="submit" [disabled]="!formArrayForm.valid">Submit</button>
+</form>

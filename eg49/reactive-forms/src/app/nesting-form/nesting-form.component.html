@@ -1,0 +1,29 @@
+<form [formGroup]="nestingForm" (ngSubmit)="onSubmit()">
+    <label class="" for="">
+      名字：
+      <input type="text" formControlName="firstName" >
+    </label>
+    <label class="" for="">
+      姓氏：
+      <input type="text" formControlName="lastName">
+    </label>
+  <div formGroupName="address">
+    <h3>地址</h3>
+    <label class="" for="">
+      城市：
+      <input type="text" formControlName="city">
+    </label>
+    <label class="" for="">
+      街道：
+      <input type="text" formControlName="street">
+    </label>
+
+
+  </div>
+  <button type="submit" [disabled]="!nestingForm.valid">Submit</button>
+
+  <p>
+    <button (click)='updateProfile()'>更新</button>
+  </p>
+
+</form>
