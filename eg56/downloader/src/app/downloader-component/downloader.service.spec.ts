@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AirQualityService } from './air-quality.service';
+import { DownloaderService } from './downloader.service';
 
-describe('AirQualityService', () => {
+describe('DownloaderService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: AirQualityService = TestBed.get(AirQualityService);
+    const service: DownloaderService = TestBed.get(DownloaderService);
     expect(service).toBeTruthy();
   });
 });
