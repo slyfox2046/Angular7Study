@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { AirQuality } from "./air-quality";
 import { AirQualityService } from "./air-quality.service";
-import { AirQuality } from './air-quality';
 
 @Component({
   selector: "app-air-quality",
@@ -9,9 +9,10 @@ import { AirQuality } from './air-quality';
 })
 export class AirQualityComponent implements OnInit {
   airQuality: AirQuality;
-  constructor(private airQualityService: AirQualityService) { }
+  headers: string[];
+  constructor(private airQualityService: AirQualityService) {}
   ngOnInit() {}
-  showAirQualityData() {
+  /* showAirQualityData() {
     this.airQualityService.getAirData().subscribe(
       (airQualityData: AirQuality) =>
         this.airQuality = {
@@ -22,5 +23,22 @@ export class AirQualityComponent implements OnInit {
           }
         }
     );
+  } */
+
+  showAirQualityData() {
+    this.airQualityService
+      .getAirData()
+      .subscribe(
+        (airQualityData: AirQuality) => (this.airQuality = airQualityData)
+      );
+  }
+
+  showAirQualityResponse() {
+    this.airQualityService.getAirDataResponse().subscribe(resp => {
+      const keys = resp.headers.keys();
+      this.headers = keys.map(key => `${key}:${resp.headers.get(key)}`);
+      console.log(this.headers);
+      this.airQuality = resp.body;
+    });
   }
 }
