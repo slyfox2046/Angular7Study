@@ -1,0 +1,6 @@
+<button (click)="showAirQualityData()">获取数据</button>
+<div *ngIf="airQuality">
+<div>状态：{{airQuality.status}}</div>
+<div>AQI：{{airQuality.data.aqi}}</div>
+<div>更新时间：{{airQuality.data.time.s}}</div>
+</div>
