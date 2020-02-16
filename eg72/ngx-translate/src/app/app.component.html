@@ -1,0 +1,16 @@
+<h1>{{mytitle}}</h1>
+<p>
+  {{'myObj.name'|translate}}
+  {{'myObj.sex'|translate}}
+</p>
+
+<h1>
+  {{'title'|translate}}
+</h1>
+
+<h1 [translate]="'title'"></h1>
+
+<p translate>title</p>
+
+<button (click)="useLanguage('en')">英文</button>
+<button (click)="useLanguage('zh')">中文</button>

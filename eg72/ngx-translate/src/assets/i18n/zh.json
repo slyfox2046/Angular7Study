@@ -1,0 +1,9 @@
+{
+    "title": "你好，世界！",
+    "myObj.name":"约翰1",
+    "myObj.sex":"男1",
+    "myObj":{
+      "name":"约翰",
+      "sex":"男"
+    }
+}
